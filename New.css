@@ -1,0 +1,227 @@
+body{
+    font-family: 'Cormorant', serif;
+    font-family: 'Signika Negative', sans-serif;;
+    background-color: rgb(189, 243, 150);
+    /* color: white; */
+    margin: 0;
+    /* overflow: hidden; */
+    font-weight:500;
+    width: auto;
+}
+td.logo_border{
+    padding: 10px;
+    border-left-style: solid;
+    border-width: 4px;
+    border-color: rgb(0, 60, 128);
+  }
+td.logo_border_1{
+    padding-left: 5px;
+    padding-top: 5px;
+} 
+.logo{
+    left: 10px;
+    top: 1rem;
+    height: 130px;
+    width: 200px;
+    border-radius: 50px;
+    /* justify-content: center;
+    align-items: center; */
+    
+}
+.him{
+    display: flex;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 10px 1px 3px 10px;
+    margin: 10px;
+    width: 380px;
+    height: 16rem;
+    background-color: #180de7;
+    flex-wrap: wrap;
+
+    position: sticky;
+    top: 0;
+    /* background-color: #121212; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pad: 1rem;
+    z-index: 10;
+    /* height: 100px; */
+    
+}
+.h1{
+    top: 1px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.1px 100px 5px 20px;
+    height: 5px;
+    width: 15px;
+}
+
+.banar{
+    width:1060px;
+    height: 310px;
+    border-radius: 25px;
+}
+.td{
+    border-left-style: solid;
+    border-width: 20px;
+    border-color: rgb(240, 113, 45);
+    border-radius: 50px;
+    color: rgb(184, 244, 6);
+    height: 120px;
+    padding: 1px 60px 5px 2px;
+}
+.UGC{
+    text-align: center;
+    background-color: #d05209;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px 30px 3px 2px;
+    margin: 10px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+}
+.card{
+    background-color: #0cceeb;
+    width: 280px;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    margin: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 8px 10px black;
+    transition: 0.6s;
+}
+.cards-container{
+    margin: 2rem 0 5rem 10rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cards-container2{
+    margin: 2rem 10rem 5rem 10rem;
+    background-color: bisque;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-img{
+    width: 280px;
+    height: 280px;
+    border-radius: 0.3rem;
+}
+.card-title{
+    font-weight: 700;
+    font-size: 1.25rem;
+    /* display: flex;
+    justify-content: space-between; */
+    align-items: center;
+}
+.card-info{
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0.7;
+}
+.card-title{
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #0a5b05;
+    text-decoration:solid;
+    align-items: center;
+}
+.btn{
+    align-items: center; 
+    width: 40px;
+}
+.footer{
+    height: 50%;
+    width: 90%;
+    border-top: 1px solid rgb(19, 18, 18);
+    opacity: 1;
+
+    background-color: #e8e9cd;
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+}
+.btn{
+    background-color:rgb(9, 241, 222);
+    color: rgb(1, 1, 1);
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 6rem 1rem 6rem;
+    border-radius: 25px;
+    height: 1.5rem;
+    width: 5.2rem;
+    
+}
+.ll{
+    height: 15.2rem;
+}
+@media(max-width:350px){
+    .footer{
+        display: none;
+    }
+}
+
+.head-1{
+    display: flex;
+}
+@media(max-width:300px){
+    .h{
+        display: none;
+    }
+}
+
+@media(max-width: 90px){
+    .card{
+      flex-wrap: wrap;
+    }
+  }
+
+  .card:hover{
+    box-shadow: 10px 15px 10px rgb(255, 255, 255);
+}
+
+.btn:hover{
+    background-color: rgb(57, 60, 238);
+    color: white;
+}
+.him{
+    
+   /* animation: width 5s ease-in 0s infinite normal;*/
+    /* animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count:initial;
+    animation-direction: normal;  */
+}
+/* .logo{
+    
+    animation: width 3s ease-in 0s infinite normal;
+} */
+@keyframes width {
+    0%{
+        width: 150px;
+        font-size: 5px;
+        background-color: rgb(27, 209, 27);
+        border-radius: 30%;
+    }
+    50%{
+        /* width: 500px;
+        font-size: 50px; */
+        background-color: rgb(159, 234, 39);
+    }
+    50%{
+        /* width: 700px;
+        font-size: 80px; */
+        background-color: rgb(243, 5, 235);
+    }
+    100%{
+        width: 360px;
+        font-size: 17px;
+        background-color: rgb(115, 0, 255);
+    }
+}
