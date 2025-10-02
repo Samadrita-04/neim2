@@ -58,7 +58,7 @@ td.logo_border_1 {
 }
 
 /* Cards */
-.cards-container {
+/* .cards-container {
     margin: 2rem auto;
     display: flex;
     flex-wrap: wrap;
@@ -109,7 +109,7 @@ td.logo_border_1 {
     font-size: 1rem;
     text-align: center;
     opacity: 0.7;
-}
+} */
 
 /* Buttons */
 .btn {
@@ -206,4 +206,561 @@ td.logo_border_1 {
     .him {
         padding: 0.5rem;
     }
+}
+
+@layer reset, base, layout, addon;
+
+/* To learn more about the following features:
+   - Scroll Buttons  
+   - Scroll Markers  
+   - Scroll-State Queries  
+   - Scroll Initial Target  
+   - Anchor Positioning  
+   check out these excellent resources by Adam Argyle:
+   - https://chrome.dev/carousel/
+   - https://developer.chrome.com/blog/carousels-with-css/
+*/
+
+@layer addon {
+  @supports (scroll-marker-group: after) and (inset-block-end: anchor(end)) {
+    .section-wrapper {
+      anchor-name: --carousel;
+
+      /* Adjust the position of the carousel controls (buttons + markers) on small screens */
+      --controls-margin-block: 64px; /* Vertical spacing from the scroller */
+      --controls-margin-inline: 12px; /* Horizontal base spacing */
+
+      --scroll-btn-gap: 12px;
+      --scroll-btn-extra-offset: 0px;
+      --scroll-btn-margin-inline: calc(var(--controls-margin-inline) + var(--scroll-btn-extra-offset));
+      --scroll-btn-size: 40px;
+
+      /* md-n-above */
+      @media (width >= 768px) {
+        /* Adjust the position of the carousel controls (buttons + markers) On medium and larger screens */
+        --controls-margin-block: 84px; /* Vertical spacing from the scroller */
+        --controls-margin-inline: 32px; /* Horizontal base spacing */
+
+        --scroll-btn-gap: 78px;
+        --scroll-btn-extra-offset: 53px;
+      }
+    }
+
+    .cards {
+      padding-block: 16px;
+      scroll-marker-group: after;
+      scrollbar-width: none;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        inline-size: 50cqi;
+      }
+
+      &::scroll-marker-group {
+        display: grid;
+        grid-auto-flow: column;
+        block-size: fit-content;
+        inline-size: 60cqi;
+        background-color: oklch(from var(--secondary) calc(l / 1.6) c calc(h - 2));
+        justify-items: end;
+        position-anchor: --carousel;
+        position: absolute;
+        inset-block-end: calc(anchor(end) + var(--controls-margin-block) + 16px);
+        inset-inline-start: calc(anchor(start) + var(--controls-margin-inline));
+        border-radius: 100px;
+      }
+
+      &::scroll-button(*) {
+        block-size: var(--scroll-btn-size);
+        border-radius: 100px;
+        border-width: 0;
+        cursor: pointer;
+        display: inline grid;
+        inline-size: var(--scroll-btn-size);
+        inset-block-end: calc(anchor(end) + var(--controls-margin-block));
+        line-height: 0;
+        outline-color: var(--surface);
+        outline-offset: 2px;
+        place-items: center;
+        position-anchor: --carousel;
+        position: absolute;
+        z-index: 10;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        background-color: var(--surface);
+      }
+
+      /* 
+       The buttons are intentionally styled without hover effects. 
+      This aligns with the original design choice to reduce visual noise 
+      and avoid drawing unnecessary attention away from card interactions.
+
+      If you'd like to add a hover effect, uncomment the code below. 
+      It uses relative color and transitions for a subtle lift on hover.
+     */
+
+      /* &::scroll-button(*) {
+        background-color: oklch(from var(--surface) calc(l * 1.5) c h);
+        transition-property: background-color, box-shadow;
+        transition-duration: var(--duration);
+        transition-timing-function: ease;
+      }
+
+      &::scroll-button(*):is(:not(:hover, :active)) {
+        background-color: var(--surface);
+        box-shadow: var(--elevation-shadow-02);
+      } */
+
+      &::scroll-button(*):disabled {
+        cursor: not-allowed;
+        background-color: color-mix(in srgb, var(--secondary) 80%, var(--surface) 20%);
+      }
+
+      &::scroll-button(inline-start) {
+        content: var(--arrow-icon) / 'Scroll back';
+        inset-inline-end: calc(
+          anchor(end) + var(--scroll-btn-margin-inline) + var(--scroll-btn-size) + var(--scroll-btn-gap)
+        );
+        transform: scaleX(-1);
+      }
+      &::scroll-button(inline-end) {
+        content: var(--arrow-icon) / 'Scroll forward';
+        inset-inline-end: calc(anchor(end) + var(--scroll-btn-margin-inline));
+      }
+    }
+
+    .btn-shape-deco {
+      display: grid;
+      position-anchor: --carousel;
+      position: absolute;
+      block-size: var(--scroll-btn-size);
+      place-items: center;
+      inline-size: calc(var(--scroll-btn-size) * 2 + var(--scroll-btn-gap));
+      inset-block-end: calc(anchor(end) + var(--controls-margin-block));
+      inset-inline-end: calc(anchor(end) + var(--scroll-btn-margin-inline));
+      color: var(--surface);
+      opacity: 0.8;
+      /* md-n-below */
+      @media (width < 768px) {
+        display: none;
+      }
+    }
+
+    .card {
+      container-type: scroll-state;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+
+      &::scroll-marker {
+        content: '';
+        aspect-ratio: 1;
+        cursor: pointer;
+        text-decoration: none;
+        width: 8px;
+        height: 8px;
+        border-radius: 100px;
+        background-color: var(--primary);
+      }
+
+      &::scroll-marker:target-current {
+        /* 
+  Assigns anchor-name: --current to the currently active scroll marker.
+  The .marker-bar uses position-anchor: --current to align relative to the active marker.
+  As you scroll, the marker-bar transitions its inset-inline-start (left) to follow the active marker.
+*/
+        anchor-name: --current;
+      }
+    }
+
+    .img-2 {
+      /* Clear fallback transform */
+      transform: unset;
+      transition: transform var(--duration) ease-in;
+      transition-delay: var(--img-translate-delay);
+      @container scroll-state(snapped: inline) {
+        transform: translateX(55px) translateY(10px) rotate(8deg);
+      }
+    }
+
+    .marker-bar {
+      /* Prevents expensive paint and layout invalidations outside the element */
+      contain: layout paint;
+      will-change: inset-inline-start;
+
+      inline-size: calc(6cqi + 8px);
+      block-size: 8px;
+      display: block;
+      background-color: var(--primary);
+      position-anchor: --current;
+      position: absolute;
+      inset-block-end: anchor(end);
+      inset-inline-start: calc(anchor(start) - 6cqi);
+      border-radius: 100px;
+      pointer-events: none;
+      transition: inset-inline-start var(--duration);
+    }
+
+    .scroll-start {
+      scroll-initial-target: nearest;
+    }
+  }
+}
+
+@layer reset {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  :where(:not(dialog)) {
+    margin: 0;
+  }
+
+  :where(html) {
+    -webkit-text-size-adjust: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  :where(body) {
+    min-block-size: 100svb;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer base {
+  html {
+    --arrow-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%234428c2"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>');
+    --small-let: 600 1rem / 1.375rem system-ui, sans-serif;
+    --caption: 400 0.688rem/1rem system-ui, sans-serif;
+    --headline: 600 2.812rem/3.25rem system-ui, sans-serif;
+    --headline-small: 600 2rem / 2.5rem system-ui, sans-serif;
+    --label: 600 1rem / 1.375rem system-ui, sans-serif;
+    --title: 600 1.75rem/2.25rem system-ui, sans-serif;
+    --title-small: 600 1.5rem/2rem system-ui, sans-serif;
+
+    --surface: oklch(96% 0 236);
+    --on-surface: oklch(0% 0 0);
+
+    --primary: oklch(91% 0.18 99);
+    --on-primary: oklch(0% 0 0);
+
+    --secondary: oklch(43% 0.22 280);
+    --on-secondary: oklch(100% 0 0);
+
+    --surface-container: oklch(91% 0.03 64);
+    --on-surface-container: oklch(0% 0 0);
+
+    --shadow-02: 0px 1px 2px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
+    --shadow-04: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@layer layout {
+  .section {
+    --duration: 0;
+    --img-translate-delay: 0;
+
+    background-color: var(--surface);
+    color: var(--on-surface);
+    padding-block: 64px;
+    font: var(--body);
+
+    /* motionOK */
+    @media (prefers-reduced-motion: no-preference) {
+      --duration: 200ms;
+      --img-translate-delay: 250ms;
+    }
+  }
+  .section-wrapper {
+    container-type: inline-size;
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    display: block;
+    border-start-end-radius: 128px;
+    overflow: clip;
+    padding-block: 32px;
+    padding-block-end: 128px;
+
+    /* md-n-above */
+    @media (width >= 768px) {
+      padding-block-end: 160px;
+    }
+  }
+  .header {
+    padding-block: 32px;
+    display: grid;
+    place-items: center;
+    padding-inline: 16px;
+    /* md-n-above */
+    @media (width >= 768px) {
+      padding-block: 64px;
+    }
+  }
+  .headline {
+    text-align: center;
+    text-wrap: pretty;
+    font: var(--headline-small);
+
+    /* md-n-above */
+    @media (width >= 768px) {
+      font: var(--headline);
+    }
+  }
+  .cards {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    place-items: start;
+    padding-block: 32px;
+    padding-inline: 48px;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    /* motionOK */
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  .card {
+    --card-circle-bg: var(--on-secondary);
+    background-color: var(--surface-container);
+    color: var(--on-surface-container);
+    border-radius: 1rem;
+    overflow: clip;
+  }
+
+  .card-even {
+    --card-circle-bg: var(--secondary);
+    background-color: var(--surface);
+    color: var(--on-surface);
+  }
+
+  .article {
+    container-type: size;
+    display: grid;
+    padding-inline: 32px;
+    padding-block-start: 32px;
+    gap: 16px;
+    inline-size: min(90cqi, 348px);
+    aspect-ratio: 3/4;
+    grid-template-rows: 1fr 1fr;
+  }
+  .card-header {
+    display: grid;
+    gap: 12px;
+  }
+  .hgroup {
+    display: grid;
+    gap: 16px;
+  }
+  .category {
+    font: var(--title-small);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .title {
+    font: var(--small-let);
+    /* md-n-above */
+    @media (width >= 768px) {
+      font: var(--title);
+    }
+  }
+  .link {
+    --_x: 0px;
+    display: flex;
+    inline-size: fit-content;
+    block-size: 40px;
+    background-color: var(--primary);
+    align-items: center;
+    gap: 8px;
+    padding-inline-start: 16px;
+    text-decoration: none;
+    color: var(--on-primary);
+    font: var(--label);
+    border-radius: 100px;
+    box-shadow: var(--shadow-02);
+
+    &:hover {
+      --_x: 3px;
+    }
+  }
+  .icon {
+    --_primary-darker: oklch(from var(--primary) calc(l - 0.08) c h);
+    background-color: var(--_primary-darker);
+    block-size: 100%;
+    display: grid;
+    align-items: center;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    border-radius: 100px;
+  }
+
+  .svg {
+    translate: var(--_x) 0px;
+    transition: translate var(--duration);
+  }
+  .visual {
+    container-type: inline-size;
+    block-size: 50cqb;
+    display: grid;
+    isolation: isolate;
+    place-items: center;
+    position: relative;
+
+    &::before {
+      content: '';
+      background-color: var(--card-circle-bg);
+      display: block;
+      inset-block-end: -70%;
+      inset-inline: 0;
+      position: absolute;
+      z-index: -1;
+
+      aspect-ratio: 1;
+      inline-size: 100%;
+      border-radius: 100%;
+    }
+  }
+  .img {
+    background-color: var(--surface-container);
+    block-size: auto;
+    border-radius: 5px;
+    box-shadow: var(--shadow-04);
+    display: block;
+    grid-area: 1/1;
+    inline-size: 50cqi;
+    margin-block-end: -50px;
+    max-inline-size: 100%;
+    object-fit: cover;
+  }
+
+  .img-2 {
+    background-color: var(--surface);
+    transform: translateX(55px) translateY(10px) rotate(8deg);
+    z-index: -1;
+  }
+
+  .btn-shape-deco {
+    display: none;
+  }
+}
+
+/* header right side image cursore */
+/* ===== Wrapper for both columns ===== */
+.welcome-jeff-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ===== Left column text ===== */
+.welcome-text {
+  flex: 1 1 300px;
+  max-width: 600px;
+  font-family: sans-serif;
+  line-height: 1.6;
+
+}
+
+/* ===== Right column containing Jeff ===== */
+.right-column {
+  flex: 1 1 300px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;       /* contain the scroll animation */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Jeff container ===== */
+#jeff {
+    width: 100%;
+    aspect-ratio: 1 / 0.4;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+  
+}
+
+/* ===== Rows of stacks ===== */
+#row1, #row2 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120%;           /* slightly larger for scroll animation */
+}
+
+#row1 { transform: rotate(-10deg) translateY(-10%); }
+#row2 { transform: rotate(-10deg) translateY(25%); }
+
+/* ===== Stack animation ===== */
+.stack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: infiniteLeft 50s linear infinite;
+}
+
+.stack.back { opacity: 0.9; }  /* slight depth effect */
+
+.stack.reverse { animation: infiniteRight 50s linear infinite; }
+
+/* ===== Individual images ===== */
+.imagen {
+  width: 20vw;
+  aspect-ratio: 1 / 1;
+  margin: 0.5%;
+  border-radius: 2dvw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(0.5px);
+}
+
+/* ===== Animation keyframes ===== */
+@keyframes infiniteLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes infiniteRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0%); }
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 1024px) {
+  #jeff { aspect-ratio: 1 / 0.5; }
+  .imagen { width: 25vw; }
+}
+
+@media (max-width: 768px) {
+  .welcome-jeff-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  #jeff {
+    width: 100%;
+    aspect-ratio: 1 / 0.6;
+    margin-top: 5px;
+    max-width: 100%;
+  }
+  .imagen { width: 40vw; margin: 2%; }
 }
