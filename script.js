@@ -1,44 +1,44 @@
 // Sample data array
 const newsData = [
   {
-    category: "ABHIJIT CHOWDHURI",
-    title: "Studies COMPUTER ENGINEERING  in JADAVPUR UNIVERSITY",
-    frontImg: "img/abhijit_img.jpg",
+    category: "ABHIJIT CHOWDHURI & SUSHOVON PALIT",
+    title: "Studies COMPUTER ENGINEERING  in GOVT. COLLEGES",
+    frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-2.avif",
     link: "#"
   },
   {
-    category: "EMPLOYEE EXPERIENCE",
-    title: "Designing inclusive workplace environments",
-    frontImg: "img/sushovon_img.jpg",
+    category: "SUMIT KR. MONDAL & CHOWDHURI FARUK AHAMED",
+    title: "EXCELLENT SCHOLER & M. Sc. in CHEMISTRY",
+    frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-1.avif",
     link: "#"
   },
   {
-    category: "CUSTOMER EXPERIENCE",
-    title: "Turning feedback into meaningful action",
-    frontImg: "img/kaku.jpg",
+    category: "MANOJ DAS & SOURISH CHATTERJEE",
+    title: "EXCELLENT SCHOLER PLACED IN GOVT. COLLEGES",
+    frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-2.avif",
     link: "#"
   },
   {
-    category: "LEADERSHIP",
-    title: "Five habits of highly effective team leaders",
-    frontImg: "img/abhijit_img.jpg",
+    category: "UJJWAL GHOSH & ROJIYARA KHATUN",
+    title: "Achieved 461/500 in WBCHSE EXAM",
+    frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-1.avif",
     link: "#"
   },
   {
-    category: "PRODUCTIVITY",
-    title: "Streamline collaboration across global teams",
-    frontImg: "img/abhijit_img.jpg",
+    category: "SK JAMIRUL & AMINUL ISLAM",
+    title: "ALUMANIES PLACED IN WORKING SECTORS",
+    frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-2.avif",
     link: "#"
   },
   {
-    category: "EMPLOYEE EXPERIENCE",
-    title: "Create a culture that supports every employee",
-    frontImg: "img/abhijit_img.jpg",
+    category: "SAMADRITA HIMAKTAR",
+    title: "COMPUTER ENGINEERING student & DEVELOPER of this WEBSITE",
+    frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-1.avif",
     link: "#"
   }
