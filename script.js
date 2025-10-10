@@ -5,42 +5,42 @@ const newsData = [
     title: "Studies COMPUTER ENGINEERING  in GOVT. COLLEGES",
     frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-2.avif",
-    link: "#"
+    link: "know_more.html"
   },
   {
     category: "SUMIT KR. MONDAL & CHOWDHURI FARUK AHAMED",
     title: "EXCELLENT SCHOLER & M. Sc. in CHEMISTRY",
     frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-1.avif",
-    link: "#"
+    link: "know_more.html"
   },
   {
     category: "MANOJ DAS & SOURISH CHATTERJEE",
     title: "EXCELLENT SCHOLER PLACED IN GOVT. COLLEGES",
     frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-2.avif",
-    link: "#"
+    link: "know_more.html"
   },
   {
     category: "UJJWAL GHOSH & ROJIYARA KHATUN",
     title: "Achieved 461/500 in WBCHSE EXAM",
     frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-1.avif",
-    link: "#"
+    link: "know_more.html"
   },
   {
     category: "SK JAMIRUL & AMINUL ISLAM",
     title: "ALUMANIES PLACED IN WORKING SECTORS",
     frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-2.avif",
-    link: "#"
+    link: "know_more.html"
   },
   {
     category: "SAMADRITA HIMAKTAR",
     title: "COMPUTER ENGINEERING student & DEVELOPER of this WEBSITE",
     frontImg: "img/logo.jpg",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-1.avif",
-    link: "#"
+    link: "know_more.html"
   }
 ];
 
