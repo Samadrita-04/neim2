@@ -96,7 +96,7 @@ newsData.forEach((item, index) => {
                 price: "Enquire for Fees",
                 info: "Approved by: GOVT. SCHOOL",
                 know_more_link: "know_more.html",
-                apply_now_link: "apply_now.html"
+                apply_now_link: "https://docs.google.com/forms/d/e/1FAIpQLScRCChpDDyyWDhfD04yGJUAKwvgpVtlwE-_h_b8ZNIUkzYdWg/viewform?usp=dialog"
             },
             {
                 title: "ENTRANCE PREPARATION",
@@ -107,7 +107,7 @@ newsData.forEach((item, index) => {
                 price: "Variable",
                 info: "JEE/NEET/PARAMEDICALS & all other exams are considered",
                 know_more_link: "know_more.html",
-                apply_now_link: "apply_now.html"
+                apply_now_link: "https://docs.google.com/forms/d/e/1FAIpQLScRCChpDDyyWDhfD04yGJUAKwvgpVtlwE-_h_b8ZNIUkzYdWg/viewform?usp=dialog"
             },
             {
                 title: "ARTS STREAM",
@@ -118,7 +118,7 @@ newsData.forEach((item, index) => {
                 price: "Enquire for Fees",
                 info: "Approved by: GOVT. SCHOOL",
                 know_more_link: "know_more.html",
-                apply_now_link: "apply_now.html"
+                apply_now_link: "https://docs.google.com/forms/d/e/1FAIpQLScRCChpDDyyWDhfD04yGJUAKwvgpVtlwE-_h_b8ZNIUkzYdWg/viewform?usp=dialog"
             }
         ];
 
