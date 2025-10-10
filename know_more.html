@@ -1,272 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEIM Students</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        header {
-            background-color: #4158db;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        header h1 {
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2em;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-        .student {
-            background-color: #fff;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            padding: 15px;
-        }
-        .student img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .student h3 {
-            margin: 10px 0;
-            color: #333;
-        }
-        .student p {
-            margin: 5px 0;
-            color: #666;
-        }
-        footer {
-            background-color: #4c78cb;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-        footer p {
-            font-size: 1.2em;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEIM Students</title>
+  <style>
+    /* --- GLOBAL STYLES --- */
+    body {
+      font-family: "Noto Sans Bengali", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: #4158db;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- STUDENT GRID --- */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px 10px;
+      box-sizing: border-box;
+    }
+
+    
+
+    
+
+    /* --- IMAGE SECTION --- */
+    .banner-image {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      /*margin: 30px 0;
+      padding: 0 10px;*/
+    }
+
+    .banner-image img {
+      width: 100%;
+      max-width: 5000px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #4c78cb;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .student {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        gap: 15px;
+      }
+
+     
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
+  <header>
     <h1>NEIM - The Dream to Make Jewels</h1>
     <p>XI, XII, JEE MAIN, NEET, WB JEE</p>
-</header>
-<!--
-<div class="container">
-    
-    <div class="student">
-        <img src="student1.jpg" alt="Student 1">
-        <h3>সৃজন রায়</h3>
-        <p>Class: XII, JEE Main</p>
-    </div>
+  </header>
 
     
-    <div class="student">
-        <img src="student2.jpg" alt="Student 2">
-        <h3>সৌম্য কাঞ্চন আহমেদ</h3>
-        <p>Class: XII, JEE Main</p>
-    </div>
 
-    
-    <div class="student">
-        <img src="student3.jpg" alt="Student 3">
-        <h3>অভিজিৎ চৌধুরী</h3>
-        <p>Class: XII, NEET</p>
-    </div>
+    <!-- ... Continue all other student cards as in your list ... -->
 
-   
-    <div class="student">
-        <img src="student4.jpg" alt="Student 4">
-        <h3>সুলতান পাটোয়ারী</h3>
-        <p>Class: XI, WB JEE</p>
-    </div>
+  </div>
 
+  <div class="banner-image">
+    <img src="img/SCRIPT FOR KM.jpg" alt="Banner Image">
+  </div>
 
-    <div class="student">
-        <img src="student5.jpg" alt="Student 5">
-        <h3>সোনালী চ্যাটার্জী</h3>
-        <p>Class: XII, JEE Main</p>
-    </div>
-
-
-    <div class="student">
-        <img src="student6.jpg" alt="Student 6">
-        <h3>অভীক মজুমদার</h3>
-        <p>Class: XII, NEET</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student7.jpg" alt="Student 7">
-        <h3>চিরঞ্জিত বিশ্বাস</h3>
-        <p>Class: XII, WB JEE</p>
-    </div>
-
-    
-    <div class="student">
-        <img src="student8.jpg" alt="Student 8">
-        <h3>শরীফি নাজমা</h3>
-        <p>Class: XII, NEET</p>
-    </div>
-
-    
-    <div class="student">
-        <img src="student9.jpg" alt="Student 9">
-        <h3>আমান দাস</h3>
-        <p>Class: XI, JEE Main</p>
-    </div>
-
-    
-    <div class="student">
-        <img src="student10.jpg" alt="Student 10">
-        <h3>অনিন্দিত মোহ</h3>
-        <p>Class: XII, WB JEE</p>
-    </div>
-
-    
-    <div class="student">
-        <img src="student11.jpg" alt="Student 11">
-        <h3>চিরঞ্জিত মিত্র</h3>
-        <p>Class: XII, NEET</p>
-    </div>
-
-    
-    <div class="student">
-        <img src="student12.jpg" alt="Student 12">
-        <h3>সার্বিক নায়েক</h3>
-        <p>Class: XII, JEE Main</p>
-    </div>
-
-  
-    <div class="student">
-        <img src="student13.jpg" alt="Student 13">
-        <h3>মাধবী ঘোষ</h3>
-        <p>Class: XI, WB JEE</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student14.jpg" alt="Student 14">
-        <h3>দেবাশীষ মোহ</h3>
-        <p>Class: XII, NEET</p>
-    </div>
-
- 
-    <div class="student">
-        <img src="student15.jpg" alt="Student 15">
-        <h3>শুভজিত মন্ডল</h3>
-        <p>Class: XII, WB JEE</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student16.jpg" alt="Student 16">
-        <h3>সুদীপ্ত কর</h3>
-        <p>Class: XI, JEE Main</p>
-    </div>
-
-    
-    <div class="student">
-        <img src="student17.jpg" alt="Student 17">
-        <h3>অনামিকা খান</h3>
-        <p>Class: XI, NEET</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student18.jpg" alt="Student 18">
-        <h3>সুমনা সুরানা</h3>
-        <p>Class: XII, WB JEE</p>
-    </div>
-
-
-    <div class="student">
-        <img src="student19.jpg" alt="Student 19">
-        <h3>কাজল মণ্ডল</h3>
-        <p>Class: XI, NEET</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student20.jpg" alt="Student 20">
-        <h3>দেবাশীষ মাহাত</h3>
-        <p>Class: XII, JEE Main</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student21.jpg" alt="Student 21">
-        <h3>রাকিবুল ইসলাম</h3>
-        <p>Class: XI, NEET</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student22.jpg" alt="Student 22">
-        <h3>মণীষা চ্যাটার্জী</h3>
-        <p>Class: XII, WB JEE</p>
-    </div>
-
-    
-    <div class="student">
-        <img src="student23.jpg" alt="Student 23">
-        <h3>সুরেশ দে</h3>
-        <p>Class: XI, JEE Main</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student24.jpg" alt="Student 24">
-        <h3>মণীষা চ্যাটার্জী</h3>
-        <p>Class: XII, WB JEE</p>
-    </div>
-
-    
-    <div class="student">
-        <img src="student25.jpg" alt="Student 25">
-        <h3>স্বাগতা রায়</h3>
-        <p>Class: XII, NEET</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student26.jpg" alt="Student 26">
-        <h3>শ্রাবন্তী মণ্ডল</h3>
-        <p>Class: XI, JEE Main</p>
-    </div>
-
-   
-    <div class="student">
-        <img src="student27.jpg" alt="Student 27">
-        <h3>সুপ্রকাশ সরকার</h3>
-        <p>Class: XII, WB JEE</p>
-    </div>
-</div>
--->
-<div style="width: 100%; justify-content: center; display: flex;">
-  <img src="img/SCRIPT FOR KM.jpg" alt="">
-</div>
-<footer>
+  <footer>
     <p>Khaja Anowar Bazar Road, Purba Bardhaman</p>
     <p>Contact: 9734785090</p>
-</footer>
+  </footer>
 
 </body>
 </html>
