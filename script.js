@@ -22,7 +22,7 @@ const newsData = [
     link: "know_more.html"
   },
   {
-    category: "UJJWAL GHOSH & ROJIYARA KHATUN",
+    category: "UJJWAL GHOSHAL & ROJIYARA KHATUN",
     title: "Achieved 461/500 in WBCHSE EXAM",
     frontImg: "img/logo.png",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-1.avif",
