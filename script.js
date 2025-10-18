@@ -9,7 +9,7 @@ const newsData = [
   },
   {
     category: "SUMIT KR. MONDAL & CHOWDHURI FARUK AHAMED",
-    title: "EXCELLENT SCHOLER & M. Sc. in CHEMISTRY",
+    title: "SCHOLER & M. Sc. in CHEMISTRY",
     frontImg: "img/logo.png",
     backImg: "https://raw.githubusercontent.com/mobalti/modern-web-ui/refs/heads/main/css-carousel/images/back-1.avif",
     link: "know_more.html"
